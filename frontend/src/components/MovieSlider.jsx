@@ -1,7 +1,7 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
 import { useContentStore } from "../store/content.js";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { SMALL_IMG_BASE_URL } from "../utils/constants.js";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -10,7 +10,6 @@ const MovieSlider = ({ category }) => {
   const { contentType } = useContentStore();
   const [content, setContent] = useState([]);
   const [showArrows, setShowArraows] = useState(false);
-  const sliderRef = useRef(null);
 
   const formattedCategoryName =
     category.replaceAll("_", " ")[0].toUpperCase() +
